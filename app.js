@@ -9,7 +9,7 @@ var table = document.getElementById("table1").getElementsByTagName('tbody')[0]
 var newRow = table1.insertRow()
 newRow.appendChild(inputTask);
 newRow.appendChild(inputPriority)
-myTaskStorage = window.localStorage
+
 let taskDB = [];
 let taskCounter = 1
 var save1 = () => {
@@ -19,10 +19,11 @@ var save1 = () => {
         readPriority = inputPriority.value
         taskManager = { 
             task: readTask , 
-            priority: readPriority }
+            priority: readPriority}
         taskDB.push(taskManager);
         newRow.innerHTML = `${taskManager.task}  ${taskManager.priority}`
-    
+        localStorage["taskDB"] = JSON.stringify(taskDB)
+        taskDB.push(JSON.parse(localStorage.getItem('session')));
       }
-console.log(taskDB);
+      console.log(gete)
 }
