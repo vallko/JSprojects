@@ -1,42 +1,28 @@
-var rowNum = 1;
-var name1 = document.createElement("textarea");
-name1.setAttribute("type", "text");
+const inputTask = document.createElement('input')
+inputTask.id = "taskField"
+inputTask.setAttribute('type', 'TEXT')
+const inputPriority = document.createElement("INPUT")
+inputPriority.setAttribute('type', 'TEXT')
+inputTask.id = "priorityField"
 
-var age = document.createElement('textarea');
-age.setAttribute("type", "text");
-
-
-var optionsButton = document.createElement('button');
-optionsButton.innerText = 'Опции';
-document.getElementById('dropDownButton').appendChild(optionsButton);
-document.getElementById('dropDownButton').innerText = optionsButton.outerHTML;
-
-var imgForm = document.createElement('INPUT')
-imgForm.setAttribute("type", "file"); 
-
-function addRow(){
-
-    var table = document.getElementById( 'tablica' );
-    row = table.insertRow(rowNum);
-    cell1 = row.insertCell(0);
-    cell2 = row.insertCell(1);
-    cell3 = row.insertCell(2);
-    cell4 = row.insertCell(3);
-    cell5 = row.insertCell(4);
-
-    cell1.innerHTML = rowNum;
-    cell2.appendChild(name1);
-    cell3.appendChild(age);
-    cell4.appendChild(imgForm);
-    cell5.appendChild(optionsButton);
-    rowNum++;
+var table = document.getElementById("table1").getElementsByTagName('tbody')[0]
+var newRow = table1.insertRow()
+newRow.appendChild(inputTask);
+newRow.appendChild(inputPriority)
+myTaskStorage = window.localStorage
+let taskDB = [];
+let taskCounter = 1
+var save1 = () => {
+    for(let i = 0; i < taskCounter; i++){
+        var newRow = table1.insertRow()
+        readTask = inputTask.value
+        readPriority = inputPriority.value
+        taskManager = { 
+            task: readTask , 
+            priority: readPriority }
+        taskDB.push(taskManager);
+        newRow.innerHTML = `${taskManager.task}  ${taskManager.priority}`
+    
+      }
+console.log(taskDB);
 }
-
-document.getElementById("save").addEventListener("click", function Save ()
-    {
-        var user = document.getElementById("name1").value ;
-        //localStorage["user"] = user ;
-        localStorage.setItem("user", user) ;
-        alert("Запазено") ;
-        console.log("Запазено")
-    } , true);
