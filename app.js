@@ -10,19 +10,19 @@ var newRow = table1.insertRow()
 newRow.appendChild(inputTask);
 newRow.appendChild(inputPriority)
 let taskDB = [];
-let taskCounter = 2
-let i = 1;
+let taskCounter = 2                                 
+let i = 1;                                                             
 
 var save1 = () => {
     var newRow = table1.insertRow()
-    for( ; i < taskCounter; i++){
+    for(;i < taskCounter; i++){
         readTask = inputTask.value
         readPriority = inputPriority.value
         taskManager = { 
             task: readTask , 
             priority: readPriority}
         taskDB.push(taskManager);
-        newRow.innerHTML = `${i} ${taskManager.task}  ${taskManager.priority}`
+        newRow.innerHTML = `<tr>${i} ${taskManager.task}  ${taskManager.priority} </tr>`
         localStorage["taskDB"] = JSON.stringify(taskDB)
         taskDB.push(JSON.parse(localStorage.getItem('session')));
       }
