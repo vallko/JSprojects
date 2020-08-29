@@ -22,7 +22,7 @@ var save1 = () => {
             task: readTask , 
             priority: readPriority}
         taskDB.push(taskManager);
-        newRow.innerHTML = `<tr>${i} ${taskManager.task}  ${taskManager.priority} </tr>`
+        newRow.innerHTML = `${i} ${taskManager.task}  ${taskManager.priority} `
         localStorage["taskDB"] = JSON.stringify(taskDB)
         taskDB.push(JSON.parse(localStorage.getItem('session')));
       }
