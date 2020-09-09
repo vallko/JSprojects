@@ -29,12 +29,11 @@ var save1 = () => {
       let mappedTasks = {};
       mappedTasks.task = individualTask.task;
       mappedTasks.priority = individualTask.priority;
-      newRow.innerHTML = `<td>${i}</td> <td>${taskManager.task}</td><td>${taskManager.priority}</td>`;
+      newRow.innerHTML = `<td>${i}</td> <td>${individualTask.task}</td><td>${individualTask.priority}</td>`;
       return mappedTasks;
     });
   }
   taskCounter++;
-
   console.log(JSON.stringify(mappedArray));
   inputTask.value = "";
   inputPriority.value = "";
